@@ -9,7 +9,7 @@ export default function App() {
 
   if (!fontsLoaded && !fontError) {
     return null;
+  } else {
+    return <Home />;
   }
-
-  return <Home />;
 }
