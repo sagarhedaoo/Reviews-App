@@ -1,22 +1,15 @@
 import React, { useState } from "react";
 import Home from "./screens/home";
-import * as Font from "expo-font";
-import { AppLoading } from "expo";
-
-const getFonts = () =>
-  Font.loadAsync({
-    "nunito-regular": require("./assets/fonts/Nunito-Regular.ttf"),
-    "nunito-bold": require("./assets/fonts/Nunito-Bold.ttf"),
-  });
+import { useFonts, Inter_900Black } from "@expo-google-fonts/inter";
 
 export default function App() {
-  const [fontsLoaded, setFontsLoaded] = useState(false);
+  let [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+  });
 
-  if (fontsLoaded) {
-    return <Home />;
+  if (!fontsLoaded && !fontError) {
+    return null;
   } else {
-    return (
-      <AppLoading startAsync={getFonts} onFinish={() => setFontsLoaded(true)} />
-    );
+    return <Home />;
   }
 }
