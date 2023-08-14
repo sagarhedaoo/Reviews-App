@@ -10,7 +10,6 @@ export default function ReviewDetails({ navigation }) {
   return (
     <View style={globalStyles.container}>
       <Text style={globalStyles.titleText}>Review Details Page</Text>
-      <Button title="Back to Home" onPress={pressHandler} />
     </View>
   );
 }
